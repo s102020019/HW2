@@ -1,6 +1,22 @@
 # HW2
 for special project. 
 
+#Introduction
+熟悉影像基本處理，運用C++實現線性和非線性的濾波器，將圖片平滑化或進行邊緣偵測。探討的濾波器有以下幾種:<br>
+1.  線性濾波器 : Box_filter,Gaussian_filter,Sobel_filter,Laplacian_filter.<br>
+2.  非線性濾波器 : Max_filter,min_filter,Median_filter.<br>
+#Theory
+因為一些不可抗因素，取到的數據有雜訊時，我們會需要用濾波器把不需要的數據給篩選掉。資料剃除掉時，原本資料的儲存位置就需要填補新的數值。藉由參考周圍其他的資料數值進行補值的動作，可以找最大、最小、中間值又或者取平均等等。因為濾波器是二維的，所以我宣告一個二維的Mat型別的變數去儲存，另外為了避免運算過程中，數值有超過0到255的可能性，我宣告的Mat是用來儲存整數數值。在轉換回uchar之前，我讓超過255的值等於255，低於0的等於0。以下code只是簡略表示我的意思，不完全正確。
+```
+Mat m = zeros(height,width,CV_32S);                         //通常我在宣告Mat時，會先給予值等於零
+Mat image = zeros(height,width,CV_8U);                      //最後轉回uchar的容器
+
+if( m.at<int>(i,j)>255 )  m.at<int>(i,j)=255;               //必須檢查運算完的m內所有值都界在0到255
+ekse if(  m.at<int>(i,j)<0 )  m.at<int>(i,j)=0;
+
+image.at<uchar>(i,j) = m.at<int>(i,j);                      //把int轉回uchar;
+```
+
 ## Q1
 * Linear filter
 * Any size with specified filter mask
