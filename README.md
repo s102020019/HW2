@@ -20,7 +20,8 @@ image.at<uchar>(i,j) = m.at<int>(i,j);                      //把int轉回uchar;
 * 了解濾波器怎麼實現外，我還要去改變濾波器的大小變成5乘5、7乘7等等，另外很多濾波器都有平滑的效果，所以把不同種但同樣大小的濾波器去作比較。
 
 
-#Inplementation
+#Result
+
 
 
 
